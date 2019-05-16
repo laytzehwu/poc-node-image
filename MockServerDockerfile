@@ -1,0 +1,24 @@
+FROM node:8
+
+ENV APP_HOME /usr/src/app
+
+# Create app directory
+WORKDIR ${APP_HOME}
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+# Bundle app source and config
+COPY ./config ./config
+COPY ./server ./server
+
+# Upload dependencies
+COPY ./node_modules ./node_modules
+
+RUN chmod +x $APP_HOME/server/*.js
+
+EXPOSE 3101
+
+CMD [ "npm", "start" ]
