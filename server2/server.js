@@ -13,6 +13,7 @@ module.exports = (PORT) => {
 	  res.send('Hello Ah Lay\n');
 	});
 
-	app.listen(PORT, HOST);
-	console.log(`Running on http://${HOST}:${PORT}`);
+	//app.listen(PORT, HOST);
+	app.listen(PORT);
+	console.log(`Running on port:${PORT}`);
 }
